@@ -1,0 +1,7 @@
+[credential]
+	helper = store
+[user]
+	name = santi-ug
+	email = santi.uribegil@gmail.com
+[init]
+	defaultBranch = main

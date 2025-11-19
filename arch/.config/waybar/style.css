@@ -1,0 +1,96 @@
+/* GLOBAL -------------------------------------------------------- */
+* {
+    font-family: "Inter Nerd Font", sans-serif;
+    font-size: 14px;
+    color: #e0e0e0;
+}
+
+/* REMOVE ALL DEFAULT SPACING/MARGINS --------------------------- */
+window#waybar {
+    all: unset;
+    background: #000000;
+    margin: 0;
+    padding: 4px 8px;       /* bar height + horizontal padding */
+    border: none;
+}
+
+/* ALIGNMENT GROUPS --------------------------------------------- */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* SPACING BETWEEN ELEMENTS ------------------------------------- */
+#waybar > * > * {
+    margin: 0 10px;     /* Increase spacing between modules */
+}
+
+/* WORKSPACES ---------------------------------------------------- */
+#workspaces {
+    padding: 0;
+}
+#workspaces button {
+    all: unset;
+    padding: 0 6px;
+    color: #666;
+    transition: 0.2s ease;
+}
+#workspaces button.active {
+    color: #ffffff;
+    text-shadow: 0px 0px 4px rgba(255,255,255,0.7);
+}
+#workspaces button.empty {
+    color: #444;
+}
+
+/* MODULES ------------------------------------------------------- */
+#clock,
+#custom-pacman,
+#custom-notification,
+#bluetooth,
+#network,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#tray,
+#custom-expand,
+#custom-colorpicker,
+#custom-endpoint {
+    padding: 0 6px;
+    color: #d0d0d0;
+    transition: 0.2s ease;
+}
+
+#clock:hover,
+#battery:hover,
+#network:hover,
+#bluetooth:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover {
+    color: #ffffff;
+}
+
+/* BATTERY STATES ------------------------------------------------ */
+#battery.charging {
+    color: #3bd16f;
+}
+#battery.warning:not(.charging) {
+    color: #ffb347;
+}
+#battery.critical:not(.charging) {
+    color: #ff4c4c;
+    animation: blink 0.5s infinite alternate;
+}
+
+/* TRAY ---------------------------------------------------------- */
+#tray menu * {
+    padding: 4px 8px;
+}
+

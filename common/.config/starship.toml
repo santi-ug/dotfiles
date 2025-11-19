@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────────
+# Tokyo Night (Gray Desaturated Edition)
+# Dark, muted, low-saturation version
+# Perfect for Cascadia Mono Nerd Font + WezTerm
+# ─────────────────────────────────────────────
+
+add_newline = false
+
+# Overall prompt structure
+format = """
+$username$directory$git_branch$git_status$nodejs$python$cmd_duration
+$character
+"""
+
+# ─────────────────────────────────────────────
+# Colors (TokyoNight but dark + desaturated)
+# ─────────────────────────────────────────────
+
+# Muted slate gray, softer than original TN
+# (these override the presets)
+[directory]
+style = "bold fg:#7a8190"             # gray-blue but desaturated
+format = "[$path]($style) "
+
+[username]
+style_user = "fg:#9aa0a6"             # soft gray
+style_root = "fg:#ff6b6b bold"        # muted red
+
+[character]
+success_symbol = "[❯](bold fg:#b4b4b4)" # muted light gray
+error_symbol = "[❯](bold fg:#ff6b6b)"   # soft red
+
+[git_branch]
+symbol = " "
+style = "fg:#89b4fa bold"             # gray-purple, low saturation
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "fg:#6b6f7a"                  # dim gray
+format = "([$all_status$ahead_behind]($style)) "
+
+[nodejs]
+symbol = " "
+style = "fg:#8fd694"                  # muted green (not neon)
+format = "[$symbol($version)]($style) "
+
+[python]
+symbol = " "
+style = "fg:#e6c384"                  # desaturated gold
+format = "[$symbol($version)]($style) "
+
+[cmd_duration]
+min_time = 200
+style = "fg:#89b4fa"                  # muted warm tone
+format = "[⏱ $duration]($style) "
+
