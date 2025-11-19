@@ -93,6 +93,13 @@ alias ll='eza -laah --smart-group --git --time-style=long-iso'
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 bindkey '^R' fzf-history-widget
 
+eunrar() {
+  f="$1"
+  d="${f%.rar}"
+  mkdir -p "$d"
+  unrar x "$f" "$d"
+}
+
 
 ############################################
 # EDITOR
