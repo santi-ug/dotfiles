@@ -3,7 +3,7 @@
 This repository contains my full cross-platform dotfiles setup using **GNU Stow**  
 for clean and reversible symlink management across **Arch Linux** and **macOS**.
 
-## 📁 Folder Structure
+## Folder Structure
 
 ```
 dotfiles/
@@ -36,7 +36,7 @@ GNU Stow automatically creates symlinks from these directories into `$HOME`.
 
 ---
 
-## 📦 Requirements
+## Requirements
 
 ### Arch Linux
 
@@ -52,7 +52,7 @@ brew install git stow
 
 ---
 
-## 🚀 Installation
+## Installation
 
 Clone the repo into **$HOME/dotfiles**:
 
@@ -100,7 +100,7 @@ This will be used once macOS-specific files exist.
 
 ---
 
-## 🔄 Updating or Removing
+## Updating or Removing
 
 Because Stow uses symlinks:
 
