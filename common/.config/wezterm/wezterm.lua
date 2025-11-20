@@ -16,7 +16,7 @@ config.enable_kitty_keyboard = false
 -----------------------------------------------------------
 config.colors = {
 	foreground = "#C0C0C5",
-	background = "#1A1A1E",
+	background = "#1A1A1B",
 	cursor_bg = "#C0C0C5",
 	cursor_fg = "#1A1A1E",
 	cursor_border = "#C0C0C5",
