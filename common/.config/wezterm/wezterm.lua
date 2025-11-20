@@ -9,7 +9,8 @@ config.line_height = 1.05 -- Prevents tall text
 -----------------------------------------------------------
 -- KEYBOARD (enable extended keys for Ctrl+Tab, etc.)
 -----------------------------------------------------------
-config.enable_kitty_keyboard = true
+config.term = "wezterm"
+config.enable_kitty_keyboard = false
 -----------------------------------------------------------
 -- TOKYONIGHT GRAY (desaturated, minimal, dark)
 -----------------------------------------------------------
