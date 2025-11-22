@@ -3,19 +3,6 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  -- for compatability with tmux
-  {
-    'christoomey/vim-tmux-navigator',
-    lazy = false,
-  },
-  -- better for escaping with jj
-  {
-    'max397574/better-escape.nvim',
-    init = function()
-      require('better_escape').setup()
-    end,
-  },
-  -- autopairs quotes or other open/close characters
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
@@ -71,22 +58,6 @@ return {
       })
     end,
   },
-  {
-    'stevearc/oil.nvim',
-    ---@module 'oil'
-    ---@type oil.SetupOpts
-    opts = {
-      buf_options = {
-        buflisted = true,
-      },
-      view_options = {
-        show_hidden = true,
-      },
-    },
-    -- Optional dependencies
-    -- dependencies = { { 'echasnovski/mini.icons', opts = {} } },
-    dependencies = { 'nvim-tree/nvim-web-devicons' }, -- use if prefer nvim-web-devicons
-  },
   -- {
   --   'github/copilot.vim',
   --   init = function()
@@ -98,13 +69,6 @@ return {
   --   end,
   -- },
   {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    init = function()
-      require('lualine').setup {}
-    end,
-  },
-  {
     'nvim-treesitter/nvim-treesitter-context',
     init = function()
       require('treesitter-context').setup {
@@ -112,47 +76,5 @@ return {
         multiline_threshold = 2,
       }
     end,
-  },
-  {
-    'nvimdev/dashboard-nvim',
-    event = 'VimEnter',
-    config = function()
-      require('dashboard').setup {
-        theme = 'doom',
-        config = {
-          header = {
-            [[                                                                              ]],
-            [[                                                                              ]],
-            [[                                    ██████                                    ]],
-            [[                                ████▒▒▒▒▒▒████                                ]],
-            [[                              ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                              ]],
-            [[                            ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                            ]],
-            [[                          ██▒▒▒▒▒▒▒▒    ▒▒▒▒▒▒▒▒                              ]],
-            [[                          ██▒▒▒▒▒▒  ▒▒▓▓▒▒▒▒▒▒  ▓▓▓▓                          ]],
-            [[                          ██▒▒▒▒▒▒  ▒▒▓▓▒▒▒▒▒▒  ▒▒▓▓                          ]],
-            [[                        ██▒▒▒▒▒▒▒▒▒▒    ▒▒▒▒▒▒▒▒    ██                        ]],
-            [[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
-            [[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
-            [[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
-            [[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
-            [[                        ██▒▒██▒▒▒▒▒▒██▒▒▒▒▒▒▒▒██▒▒▒▒██                        ]],
-            [[                        ████  ██▒▒██  ██▒▒▒▒██  ██▒▒██                        ]],
-            [[                        ██      ██      ████      ████                        ]],
-            [[                                                                              ]],
-          },
-          -- Get the current working directory
-          footer = { 'current working directory: ', vim.fn.getcwd() },
-        },
-        shortcut_type = 'number',
-        hide = {
-          tabline = true,
-          winbar = true,
-        },
-        preview = {
-          file_path = true,
-        },
-      }
-    end,
-    dependencies = { { 'nvim-tree/nvim-web-devicons' } },
   },
 }

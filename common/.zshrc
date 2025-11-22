@@ -106,3 +106,7 @@ eunrar() {
 ############################################
 export EDITOR="nvim"
 
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
