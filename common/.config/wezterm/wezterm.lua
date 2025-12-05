@@ -47,10 +47,10 @@ config.colors = {
 -- WINDOW + UI BEHAVIOR
 -----------------------------------------------------------
 config.hide_tab_bar_if_only_one_tab = true
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
 config.window_padding = {
-	left = 8,
-	right = 8,
+	left = 6,
+	right = 6,
 	top = 6,
 	bottom = 6,
 }
