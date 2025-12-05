@@ -13,6 +13,13 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+############################################
+# COMPLETION SYSTEM (IMPORTANT!)
+############################################
+# Must come BEFORE anything that uses `compdef`
+autoload -Uz compinit
+compinit
+
 
 ############################################
 # PATH + OS-SPECIFIC SETTINGS

@@ -25,7 +25,6 @@ return {
           [[                        ██      ██      ████      ████                        ]],
           [[                                                                              ]],
         },
-        -- Get the current working directory
         footer = { 'current working directory: ', vim.fn.getcwd() },
       },
       shortcut_type = 'number',
