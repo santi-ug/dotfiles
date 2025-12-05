@@ -6,7 +6,7 @@ return {
     require('oil').setup {
       -- Use a floating window
       default_file_explorer = true,
-
+      skip_confirm_for_simple_edits = true,
       -- Float configuration
       float = {
         -- Padding around the floating window
