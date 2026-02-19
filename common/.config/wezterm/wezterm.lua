@@ -59,6 +59,7 @@ config.hide_tab_bar_if_only_one_tab = true
 -- Use RESIZE so you can still resize the window.
 config.window_decorations = "RESIZE"
 
+config.warn_about_missing_glyphs = false
 config.window_padding = {
 	left = 6,
 	right = 6,

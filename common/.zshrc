@@ -1,3 +1,6 @@
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_REDUCE_BLANKS
 ############################################
 # ZINIT INSTALLER (DO NOT TOUCH)
 ############################################
@@ -27,6 +30,9 @@ compinit
 
 # Basic PATH
 export PATH="$HOME/bin:$PATH"
+# User binaries
+export PATH="$HOME/.local/bin:$PATH"
+
 
 # macOS: Homebrew path
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -107,6 +113,9 @@ eunrar() {
   unrar x "$f" "$d"
 }
 
+vol() {
+  wpctl set-volume @DEFAULT_AUDIO_SINK@ "$@"
+}
 
 ############################################
 # EDITOR
@@ -121,3 +130,15 @@ source <(ng completion script)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+############################################
+# NODE / NVM
+############################################
+export NVM_DIR="$HOME/.nvm"
+
+# Load nvm
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+
+# (Optional) bash-style completion used by nvm
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+

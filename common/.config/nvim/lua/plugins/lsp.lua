@@ -18,8 +18,19 @@ return {
             },
           },
         },
-        ts_ls = {},
-        eslint = {},
+        ts_ls = {
+          on_attach = function(client)
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end,
+        },
+
+        eslint = {
+          settings = {
+            format = false,
+          },
+        },
+
         tailwindcss = {},
         html = {},
         cssls = {},
