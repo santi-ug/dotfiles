@@ -38,6 +38,14 @@ return {
           },
         },
       },
+      bicep = {
+        cmd = {
+          vim.fn.stdpath 'data' .. '/mason/bin/bicep-langserver',
+          '--stdio',
+        },
+        filetypes = { 'bicep', 'bicep-params' },
+        root_markers = { '.git' },
+      },
       extra_tools = {
         'stylua',
         'prettierd',

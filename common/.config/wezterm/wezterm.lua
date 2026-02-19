@@ -1,16 +1,21 @@
 local wezterm = require("wezterm")
-local config = {}
+
+-- Build config the "new" recommended way if available
+local config = wezterm.config_builder and wezterm.config_builder() or {}
+
 -----------------------------------------------------------
 -- FONT (Cascadia Mono Nerd Font, smaller, tighter lines)
 -----------------------------------------------------------
 config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
-config.font_size = 11.0 -- Smaller (adjust if needed)
-config.line_height = 1.05 -- Prevents tall text
+config.font_size = 11.0
+config.line_height = 1.05
+
 -----------------------------------------------------------
--- KEYBOARD (enable extended keys for Ctrl+Tab, etc.)
+-- KEYBOARD
 -----------------------------------------------------------
-config.term = "wezterm"
+config.term = "xterm-256color"
 config.enable_kitty_keyboard = false
+
 -----------------------------------------------------------
 -- TOKYONIGHT GRAY (desaturated, minimal, dark)
 -----------------------------------------------------------
@@ -23,40 +28,73 @@ config.colors = {
 	selection_bg = "#2C2C33",
 	selection_fg = "#C0C0C5",
 	ansi = {
-		"#1A1A1E", -- black
-		"#C74F4F", -- red (muted)
-		"#8FBF7F", -- green (muted)
-		"#E6C384", -- yellow (desaturated gold)
-		"#7A8190", -- blue-gray (desaturated)
-		"#967BB6", -- purple-gray
-		"#7EBCC2", -- cyan muted
-		"#C0C0C5", -- white (soft)
+		"#1A1A1E",
+		"#C74F4F",
+		"#8FBF7F",
+		"#E6C384",
+		"#7A8190",
+		"#967BB6",
+		"#7EBCC2",
+		"#C0C0C5",
 	},
 	brights = {
-		"#2A2A2F", -- black bright
-		"#D47777", -- red
-		"#A8D0A0", -- green
-		"#EAD29A", -- yellow
-		"#8F93A2", -- blue-gray brighter
-		"#A98FC6", -- purple-gray brighter
-		"#95D2D7", -- cyan
-		"#E4E4E8", -- white bright
+		"#2A2A2F",
+		"#D47777",
+		"#A8D0A0",
+		"#EAD29A",
+		"#8F93A2",
+		"#A98FC6",
+		"#95D2D7",
+		"#E4E4E8",
 	},
 }
+
 -----------------------------------------------------------
 -- WINDOW + UI BEHAVIOR
 -----------------------------------------------------------
 config.hide_tab_bar_if_only_one_tab = true
-config.window_decorations = "NONE"
+
+-- IMPORTANT:
+-- "NONE" removes the native titlebar and usually makes resizing annoying/impossible on macOS.
+-- Use RESIZE so you can still resize the window.
+config.window_decorations = "RESIZE"
+
 config.window_padding = {
 	left = 6,
 	right = 6,
 	top = 6,
 	bottom = 6,
 }
+
+-- Default size on open (bigger): rows/cols, not pixels
+config.initial_rows = 50
+config.initial_cols = 180
+
+-- Keep your startup args
 config.unix_domains = {}
 config.default_gui_startup_args = { "start", "--no-auto-connect" }
+config.window_close_confirmation = "NeverPrompt"
 
+-----------------------------------------------------------
+-- Center window on startup (macOS)
+-----------------------------------------------------------
+wezterm.on("gui-startup", function(cmd)
+	local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+	local gui = window:gui_window()
+
+	-- Center on main screen using pixel dimensions
+	local screen = wezterm.gui.screens().main
+	local win_dims = gui:get_dimensions()
+
+	local x = math.floor((screen.width - win_dims.pixel_width) / 2)
+	local y = math.floor((screen.height - win_dims.pixel_height) / 2)
+
+	gui:set_position(x, y)
+end)
+
+-----------------------------------------------------------
+-- KEYS
+-----------------------------------------------------------
 config.keys = {
 	-- Disable WezTerm's default Ctrl+Tab behavior
 	{ key = "Tab", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
