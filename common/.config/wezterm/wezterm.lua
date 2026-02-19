@@ -47,6 +47,7 @@ config.colors = {
 -- WINDOW + UI BEHAVIOR
 -----------------------------------------------------------
 config.hide_tab_bar_if_only_one_tab = true
+config.warn_about_missing_glyphs = false
 config.window_decorations = "NONE"
 config.window_padding = {
 	left = 6,

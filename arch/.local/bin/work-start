@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -e
+
+# ---- Workspace 1: Browser ----
+hyprctl dispatch exec "[workspace 1] zen-browser"
+
+# ---- Workspace 2: Work (tmuxp) ----
+hyprctl dispatch exec "[workspace 2] wezterm start -- bash -lc 'tmux attach -t work || tmuxp load work'"
+
+# ---- Workspace 3: Writing ----
+hyprctl dispatch exec "[workspace 3] wezterm start -- bash -lc 'z vertebra && nvim todo.md'"
+

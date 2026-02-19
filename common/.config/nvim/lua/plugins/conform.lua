@@ -5,7 +5,7 @@ return {
 
     format_on_save = {
       timeout_ms = 1000,
-      lsp_fallback = true,
+      lsp_fallback = false,
     },
 
     formatters = {
@@ -14,8 +14,8 @@ return {
           return { '--reformat', '-' }
         end,
       },
-      biomelint = {
-        command = 'node_modules/.bin/biome',
+      prettierdlint = {
+        command = 'node_modules/.bin/prettierd',
         stdin = true,
         args = function()
           return { 'lint', '--stdin-file-path', '$FILENAME', '--write' }
@@ -28,15 +28,15 @@ return {
 
       python = { 'black', 'isort' },
 
-      javascript = { 'prettierd' },
-      javascriptreact = { 'prettierd' },
+      javascript = { 'standard' },
+      javascriptreact = { 'standard' },
 
-      typescript = { 'biome', 'biomelint' },
-      typescriptreact = { 'prettierd' },
+      -- typescript = { 'prettierd' },
+      -- typescriptreact = { 'prettierd' },
 
       vue = { 'prettierd' },
 
-      json = { 'biome' },
+      json = { 'prettierd' },
       jinja = { 'djlint' },
       templ = { 'templ' },
     },
