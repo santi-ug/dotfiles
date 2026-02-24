@@ -139,7 +139,7 @@ const subLayers = {
     n: { ...open("raycast://script-commands/dismiss-notifications"), description: "Dismiss Notifications" },
     e: { ...open("raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"), description: "Emoji Search" },
     p: { ...open("raycast://extensions/raycast/raycast/confetti"), description: "Confetti" },
-    h: { ...open("raycast://extensions/raycast/clipboard-history/clipboard-History"), description: "Clipboard History" },
+    h: { ...open("raycast://extensions/raycast/clipboard-history/clipboard-history"), description: "Clipboard History" },
     1: { ...open("raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-1"), description: "Connect Bluetooth Device 1" },
     // 2: { ...open("raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-2"), description: "Connect Bluetooth Device 2" },
   },
