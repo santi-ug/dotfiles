@@ -1,0 +1,28 @@
+session_name: vertebra
+
+windows:
+  - window_name: smarteco-main
+    layout: even-horizontal
+    panes:
+      - shell_command:
+          - z smarteco
+      - shell_command:
+          - z smarteco
+          - claude
+
+  - window_name: editor
+    panes:
+      - shell_command:
+          - z smarteco
+
+  - window_name: vertebra-todo
+    panes:
+      - shell_command:
+          - z vertebra
+          - nvim todo.md
+
+  - window_name: build
+    panes:
+      - shell_command:
+          - z smarteco
+          - yarn run esbuild-start
