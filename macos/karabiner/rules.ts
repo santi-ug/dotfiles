@@ -50,7 +50,6 @@ const subLayers = {
     j: window("bottom-half"),
     h: window("left-half"),
     l: window("right-half"),
-    f: window("maximize"),
     c: window("almost-maximize"),
     u: {
       description: "Window: Previous Tab",
@@ -164,6 +163,37 @@ const rules: KarabinerRules[] = [
     ],
   },
   ...createHyperSubLayers(subLayers),
+  {
+    description: "Hyper W + F: Toggle Maximize",
+    manipulators: [
+      {
+        type: "basic",
+        description: "Maximize window",
+        from: { key_code: "f", modifiers: { optional: ["any"] } },
+        to: [
+          { shell_command: "open -g raycast://extensions/raycast/window-management/maximize" },
+          { set_variable: { name: "window_maximized", value: 1 } },
+        ],
+        conditions: [
+          { type: "variable_if", name: "hyper_sublayer_w", value: 1 },
+          { type: "variable_if", name: "window_maximized", value: 0 },
+        ],
+      },
+      {
+        type: "basic",
+        description: "Restore window",
+        from: { key_code: "f", modifiers: { optional: ["any"] } },
+        to: [
+          { shell_command: "open -g raycast://extensions/raycast/window-management/restore" },
+          { set_variable: { name: "window_maximized", value: 0 } },
+        ],
+        conditions: [
+          { type: "variable_if", name: "hyper_sublayer_w", value: 1 },
+          { type: "variable_if", name: "window_maximized", value: 1 },
+        ],
+      },
+    ],
+  },
 ];
 
 fs.writeFileSync(

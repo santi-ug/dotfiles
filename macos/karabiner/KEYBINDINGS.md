@@ -44,7 +44,6 @@
 | `Hyper + W + J` | Window: bottom-half |
 | `Hyper + W + H` | Window: left-half |
 | `Hyper + W + L` | Window: right-half |
-| `Hyper + W + F` | Window: maximize |
 | `Hyper + W + C` | Window: almost-maximize |
 | `Hyper + W + U` | Window: Previous Tab |
 | `Hyper + W + I` | Window: Next Tab |
