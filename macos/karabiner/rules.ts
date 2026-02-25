@@ -31,6 +31,7 @@ const subLayers = {
     s: app("Spotify"),
     w: app("WhatsApp"),
     r: app("Reminders"),
+    m: app("Mail"),
   },
 
   // w = "Window"

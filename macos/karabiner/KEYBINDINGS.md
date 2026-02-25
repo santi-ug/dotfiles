@@ -32,6 +32,7 @@
 | `Hyper + O + S` | Spotify |
 | `Hyper + O + W` | WhatsApp |
 | `Hyper + O + R` | Reminders |
+| `Hyper + O + M` | Mail |
 
 ## W — Window
 
@@ -99,4 +100,106 @@
 | `Hyper + R + E` | Emoji Search |
 | `Hyper + R + P` | Confetti |
 | `Hyper + R + H` | Clipboard History |
+
+---
+
+# Tmux Keybindings
+
+> **Leader** = `Ctrl + Space`
+
+---
+
+## Sessions
+
+| Keys | Action |
+|------|--------|
+| `Leader + d` | Detach session |
+| `Leader + s` | List / switch sessions |
+| `Leader + $` | Rename session |
+| `Leader + o` | SessionX — fuzzy session manager |
+| `Leader + Ctrl + s` | Save session (tmux-resurrect) |
+| `Leader + Ctrl + r` | Restore session (tmux-resurrect) |
+
+## Windows
+
+| Keys | Action |
+|------|--------|
+| `Ctrl + Tab` | Next window |
+| `Ctrl + Shift + Tab` | Previous window |
+| `Leader + c` | New window |
+| `Leader + ,` | Rename window |
+| `Leader + w` | List windows |
+| `Leader + n` | Next window |
+| `Leader + p` | Previous window |
+| `Leader + f` | Find window |
+| `Leader + &` | Kill window |
+
+## Panes
+
+| Keys | Action |
+|------|--------|
+| `Leader + h` | Split pane horizontally (current dir) |
+| `Leader + v` | Split pane vertically (current dir) |
+| `Leader + x` | Kill pane |
+| `Leader + z` | Zoom / unzoom pane |
+| `Leader + q` | Show pane numbers |
+| `Leader + {` | Swap pane up |
+| `Leader + }` | Swap pane down |
+| `Leader + !` | Break pane into new window |
+| `Leader + o` | Rotate panes |
+
+## Navigation (vim-tmux-navigator)
+
+> Works seamlessly across vim splits and tmux panes
+
+| Keys | Action |
+|------|--------|
+| `Ctrl + h` | Navigate left |
+| `Ctrl + j` | Navigate down |
+| `Ctrl + k` | Navigate up |
+| `Ctrl + l` | Navigate right |
+| `Ctrl + \\` | Navigate to previous pane |
+
+## Copy Mode & Clipboard
+
+| Keys | Action |
+|------|--------|
+| `Leader + [` | Enter copy mode |
+| `Leader + ]` | Paste buffer |
+| `y` *(copy mode)* | Copy selection to system clipboard (tmux-yank) |
+| `Y` *(copy mode)* | Copy line to command line (tmux-yank) |
+| `Leader + y` | Copy tmux selection to clipboard (tmux-yank) |
+| `Leader + Y` | Copy current working directory to clipboard (tmux-yank) |
+| `Leader + Space` | Thumbs mode — hint-based copy (tmux-thumbs) |
+
+## FZF & URLs
+
+| Keys | Action |
+|------|--------|
+| `Leader + F` | Open tmux-fzf menu |
+| `Leader + u` | Pick URL from visible pane with fzf (tmux-fzf-url) |
+
+## SessionX
+
+| Keys | Action |
+|------|--------|
+| `Leader + o` | Open SessionX |
+| `Tab` *(in SessionX)* | Select up |
+| `Shift + Tab` *(in SessionX)* | Select down |
+
+## Plugin Management (TPM)
+
+| Keys | Action |
+|------|--------|
+| `Leader + I` | Install plugins |
+| `Leader + U` | Update plugins |
+| `Leader + Alt + u` | Remove unused plugins |
+
+## Misc
+
+| Keys | Action |
+|------|--------|
+| `Leader + :` | Command prompt |
+| `Leader + ?` | List all keybindings |
+| `Leader + t` | Show clock |
 
