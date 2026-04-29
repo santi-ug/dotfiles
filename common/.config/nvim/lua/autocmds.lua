@@ -8,6 +8,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
+
 -- restore cursor to file position in previous editing session
 vim.api.nvim_create_autocmd('BufReadPost', {
   callback = function(args)

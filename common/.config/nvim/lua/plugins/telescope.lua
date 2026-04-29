@@ -21,20 +21,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
     {
       'nvim-tree/nvim-web-devicons',
       enabled = vim.g.have_nerd_font,
-      opts = {
-        override_by_extension = {
-          ['jinja'] = {
-            icon = '',
-            color = '#81e043',
-            name = 'jinja',
-          },
-          ['blade.php'] = {
-            icon = '',
-            color = '#a074c4',
-            name = 'blade',
-          },
-        },
-      },
     },
   },
   config = function()

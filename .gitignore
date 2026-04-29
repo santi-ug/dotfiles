@@ -1,1 +1,3 @@
 common/.config/tmux/plugins
+macos/karabiner/automatic_backups/
+.nvimlog

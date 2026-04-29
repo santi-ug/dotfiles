@@ -22,12 +22,12 @@
 
 | Keys | Action |
 |------|--------|
-| `Hyper + O + B` | Orion |
+| `Hyper + O + B` | Arc |
 | `Hyper + O + C` | Calendar |
-| `Hyper + O + V` | Zed |
+| `Hyper + O + V` | Cursor |
 | `Hyper + O + K` | Slack |
 | `Hyper + O + N` | Notion |
-| `Hyper + O + T` | WezTerm |
+| `Hyper + O + T` | cmux |
 | `Hyper + O + F` | Finder |
 | `Hyper + O + S` | Spotify |
 | `Hyper + O + W` | WhatsApp |
@@ -46,6 +46,9 @@
 | `Hyper + W + H` | Window: left-half |
 | `Hyper + W + L` | Window: right-half |
 | `Hyper + W + C` | Window: almost-maximize |
+| `Hyper + W + X` | Window: reasonable-size |
+| `Hyper + W + [` | Window: make-smaller |
+| `Hyper + W + ]` | Window: make-larger |
 | `Hyper + W + U` | Window: Previous Tab |
 | `Hyper + W + I` | Window: Next Tab |
 | `Hyper + W + N` | Window: Next Window |

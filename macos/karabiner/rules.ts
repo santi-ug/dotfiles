@@ -21,12 +21,12 @@ const subLayers = {
   },
   // o = "Open" applications
   o: {
-    b: app("Orion"),
+    b: app("Arc"),
     c: app("Calendar"),
-    v: app("Zed"),
+    v: app("Cursor"),
     k: app("Slack"),
     n: app("Notion"),
-    t: app("WezTerm"),
+    t: app("cmux"),
     f: app("Finder"),
     s: app("Spotify"),
     w: app("WhatsApp"),
@@ -52,6 +52,9 @@ const subLayers = {
     h: window("left-half"),
     l: window("right-half"),
     c: window("almost-maximize"),
+    x: window("reasonable-size"),
+    open_bracket: window("make-smaller"),
+    close_bracket: window("make-larger"),
     u: {
       description: "Window: Previous Tab",
       to: [
