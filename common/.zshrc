@@ -97,6 +97,10 @@ alias la="ls -A"
 alias l="ls -CF"
 alias ll='eza -laah --smart-group --git --time-style=long-iso'
 
+bitacora-update() {
+  bash "/Users/santi/Documents/code/projects/bitacora-updater/run_bitacora.sh" "$@"
+}
+
 ############################################
 # FZF
 ############################################
@@ -142,6 +146,32 @@ export NVM_DIR="$HOME/.nvm"
 # (Optional) bash-style completion used by nvm
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
+autoload -Uz add-zsh-hook
+
+nvm_auto_use() {
+  command -v nvm >/dev/null 2>&1 || return
+
+  local nvmrc_path node_version current_version
+  nvmrc_path="$(nvm_find_nvmrc 2>/dev/null)"
+
+  [[ -z "$nvmrc_path" ]] && return
+
+  node_version="$(<"$nvmrc_path")"
+  node_version="${node_version%%#*}"
+  node_version="${node_version//[[:space:]]/}"
+
+  [[ -z "$node_version" ]] && return
+
+  current_version="$(node -v 2>/dev/null)"
+
+  if [[ "$current_version" != "v${node_version#v}" ]]; then
+    nvm use --silent "$node_version" >/dev/null
+  fi
+}
+
+add-zsh-hook chpwd nvm_auto_use
+nvm_auto_use
+
 ############################################
 # PYENV
 ############################################
@@ -151,3 +181,22 @@ eval "$(pyenv init -)"
 
 # Added by Antigravity
 export PATH="/Users/santi/.antigravity/antigravity/bin:$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/santi/.local/bin:$PATH"
+
+# bun completions
+[ -s "/Users/santi/.bun/_bun" ] && source "/Users/santi/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

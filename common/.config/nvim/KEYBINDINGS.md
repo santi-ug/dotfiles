@@ -20,8 +20,9 @@
 |------|--------|
 | `Esc` | Clear search highlight |
 | `Ctrl + s` | Save buffer |
-| `Leader + q` | Close window |
-| `Leader + x` | Delete current buffer |
+| `Leader + q` | Smart quit current buffer/window |
+| `Leader + x` | Force smart quit current buffer/window |
+| `Leader + Q` | Save, then smart quit current buffer/window |
 | `Leader + Tab` | Next buffer |
 | `y` | Yank to system clipboard |
 | `yy` | Yank current line to system clipboard |
@@ -40,7 +41,8 @@
 |------|--------|
 | `Leader + tt` | Open terminal buffer |
 | `Leader + to` | Open Oil file browser |
-| `Leader + tc` | Pick colorscheme with Telescope |
+| `Leader + tc` | Change theme with Telescope |
+| `Leader + ts` | Change tab size |
 
 ## Diagnostics
 
@@ -68,6 +70,15 @@
 | `Ctrl + k` | Navigate up |
 | `Ctrl + l` | Navigate right |
 | `Ctrl + \\` | Navigate to previous pane |
+
+## Workspace Cleanup
+
+| Keys | Action |
+|------|--------|
+| `Leader + we` | Wipe empty buffers |
+| `Leader + wc` | Close extra splits |
+
+Native Vim window command: `Ctrl + w`, then `c` closes the current window only (`:close`) without deleting the buffer.
 
 ---
 
@@ -118,7 +129,7 @@
 
 | Keys | Action |
 |------|--------|
-| `Leader + tc` | Pick colorscheme with Telescope |
+| `Leader + tc` | Change theme with Telescope |
 
 ## comment.lua
 
@@ -156,11 +167,13 @@
 | `Leader + gq` | Close Diffview |
 | `Tab` *(Diffview)* | Next changed file |
 | `Shift + Tab` *(Diffview)* | Previous changed file |
-| `[c` *(Diffview)* | Previous diff hunk |
-| `]c` *(Diffview)* | Next diff hunk |
+| `Leader + [c` *(Diffview)* | Previous diff hunk |
+| `Leader + ]c` *(Diffview)* | Next diff hunk |
 | `:DiffviewToggleFiles` | Toggle file panel |
 | `:DiffviewFocusFiles` | Focus file panel |
 | `:DiffviewRefresh` | Refresh current diff view |
+| `Leader + gS` *(Diffview file panel)* | Stage / unstage file under cursor |
+| `Leader + gU` *(Diffview file panel)* | Unstage / stage file under cursor |
 
 ## flash.lua
 
@@ -189,7 +202,10 @@
 
 | Keys | Action |
 |------|--------|
-| No custom keybinds | Git signs and current-line blame are enabled |
+| `Leader + gs` | Stage hunk under cursor |
+| `Leader + gS` | Stage entire file |
+| `Leader + gu` | Unstage hunk under cursor |
+| `Leader + gU` | Unstage entire file |
 
 ## lint.lua
 
@@ -303,6 +319,16 @@
 | `Leader + m` | Toggle split/join |
 | `Leader + j` | Join code block |
 | `Leader + s` | Split code block |
+
+## vim-smartq.lua
+
+| Keys | Action |
+|------|--------|
+| `Leader + q` | Smart quit current buffer/window |
+| `Leader + x` | Force smart quit current buffer/window |
+| `Leader + Q` | Save, then smart quit current buffer/window |
+| `Leader + we` | Wipe empty buffers |
+| `Leader + wc` | Close extra splits |
 
 ## vim-tmux-navigator.lua
 

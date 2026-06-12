@@ -1,0 +1,17 @@
+# Ghostty — macOS. Managed via GNU stow (dotfiles/macos/ghostty/).
+# Reload in-app: Cmd+Shift+, (some opts only apply to new windows).
+
+# Theme: palette + foreground from Xcode Dark hc
+theme = Xcode Dark hc
+
+# Background: copied from wezterm (tokyonight gray)
+background = #1a1a1b
+
+# Font: CaskaydiaMono Nerd Font Mono, 12pt, +5% line height (wezterm-matched family).
+# (Ghostty lists this family as "CaskaydiaMono NFM".)
+font-family = CaskaydiaMono NFM
+font-size = 12
+adjust-cell-height = 5%
+
+# Hide the titlebar (and traffic-light buttons); keeps native borders/corners.
+macos-titlebar-style = hidden

@@ -11,7 +11,8 @@ vim.opt.breakindent = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-vim.bo.softtabstop = 2
+vim.opt.softtabstop = 2
+require('userprefs').load_tab_size(2)
 
 vim.opt.undofile = true
 vim.opt.ignorecase = true

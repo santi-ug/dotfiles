@@ -1,0 +1,117 @@
+# AeroSpace — macOS tiling WM. Managed via GNU stow (dotfiles/macos/.config/aerospace).
+# Docs: https://nikitabobko.github.io/AeroSpace/guide
+# Note: in this file the modifier 'alt' = the ⌥ Option key.
+
+config-version = 2
+after-startup-command = []
+start-at-login = false
+
+# Normalizations: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 30
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+# Mouse follows focus: warp the cursor to the center of the focused WINDOW on every
+# focus change. window-force-center = always move, even within the same monitor.
+on-focus-changed = ['move-mouse window-force-center']
+automatically-unhide-macos-hidden-apps = false
+
+# Only the workspaces I actually use: 1-5 and Q W E R T
+persistent-workspaces = ['1', '2', '3', '4', '5', 'Q', 'W', 'E', 'R', 'T']
+
+on-mode-changed = []
+
+[key-mapping]
+    preset = 'qwerty'
+
+# Flush by default — bump these if you want Hyprland-style gaps
+[gaps]
+    inner.horizontal = 0
+    inner.vertical =   0
+    outer.left =       0
+    outer.bottom =     0
+    outer.top =        0
+    outer.right =      0
+
+# Pin workspaces to monitors by ROLE (not by name) so it works with ANY external
+# display: 'main' = the macOS primary display (your built-in), 'secondary' = whatever
+# external is plugged in. With no external connected, ws2 falls back to the main display.
+[workspace-to-monitor-force-assignment]
+    1 = 'main'        # built-in / primary  -> workspace 1
+    2 = 'secondary'   # any external display -> workspace 2
+
+[mode.main.binding]
+    # --- Layout ---
+    alt-slash = 'layout tiles horizontal vertical'
+    alt-comma = 'layout accordion horizontal vertical'
+
+    # --- Focus between tiled windows; at the workspace edge, jump focus to the
+    #     window on the adjacent monitor (mirrors the move binds below). ---
+    alt-h = 'exec-and-forget /opt/homebrew/bin/aerospace focus left  --boundaries workspace --boundaries-action fail || /opt/homebrew/bin/aerospace focus-monitor left'
+    alt-j = 'exec-and-forget /opt/homebrew/bin/aerospace focus down  --boundaries workspace --boundaries-action fail || /opt/homebrew/bin/aerospace focus-monitor down'
+    alt-k = 'exec-and-forget /opt/homebrew/bin/aerospace focus up    --boundaries workspace --boundaries-action fail || /opt/homebrew/bin/aerospace focus-monitor up'
+    alt-l = 'exec-and-forget /opt/homebrew/bin/aerospace focus right --boundaries workspace --boundaries-action fail || /opt/homebrew/bin/aerospace focus-monitor right'
+
+    # --- Move window: reorder within the workspace tree, but if it's already at the
+    #     edge, spill over to the monitor in that direction (focus follows). One key
+    #     does both, i3/Hyprland-style.
+    #     `move ... --boundaries workspace --boundaries-action fail` returns non-zero
+    #     at the workspace edge, so `||` falls through to move-node-to-monitor.
+    alt-shift-h = 'exec-and-forget /opt/homebrew/bin/aerospace move left  --boundaries workspace --boundaries-action fail || /opt/homebrew/bin/aerospace move-node-to-monitor --focus-follows-window left'
+    alt-shift-j = 'exec-and-forget /opt/homebrew/bin/aerospace move down  --boundaries workspace --boundaries-action fail || /opt/homebrew/bin/aerospace move-node-to-monitor --focus-follows-window down'
+    alt-shift-k = 'exec-and-forget /opt/homebrew/bin/aerospace move up    --boundaries workspace --boundaries-action fail || /opt/homebrew/bin/aerospace move-node-to-monitor --focus-follows-window up'
+    alt-shift-l = 'exec-and-forget /opt/homebrew/bin/aerospace move right --boundaries workspace --boundaries-action fail || /opt/homebrew/bin/aerospace move-node-to-monitor --focus-follows-window right'
+
+    # --- Resize ---
+    alt-minus = 'resize smart -50'
+    alt-equal = 'resize smart +50'
+
+    # --- Toggles ---
+    alt-f = 'fullscreen'                        # ⌥F  toggle fullscreen for focused window
+    alt-shift-space = 'layout floating tiling'  # ⌥⇧Space  toggle float <-> tile
+
+    # --- Switch to workspace ---
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-q = 'workspace Q'
+    alt-w = 'workspace W'
+    alt-e = 'workspace E'
+    alt-r = 'workspace R'
+    alt-t = 'workspace T'
+
+    # --- Send focused window to workspace ---
+    alt-shift-1 = 'move-node-to-workspace 1'
+    alt-shift-2 = 'move-node-to-workspace 2'
+    alt-shift-3 = 'move-node-to-workspace 3'
+    alt-shift-4 = 'move-node-to-workspace 4'
+    alt-shift-5 = 'move-node-to-workspace 5'
+    alt-shift-q = 'move-node-to-workspace Q'
+    alt-shift-w = 'move-node-to-workspace W'
+    alt-shift-e = 'move-node-to-workspace E'
+    alt-shift-r = 'move-node-to-workspace R'
+    alt-shift-t = 'move-node-to-workspace T'
+
+    # --- Workspace navigation ---
+    alt-tab = 'workspace-back-and-forth'             # toggle last two workspaces
+    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+    # --- Service mode ---
+    alt-shift-semicolon = 'mode service'
+
+# 'service' mode: reload, reset, float, close-others, build splits
+[mode.service.binding]
+    esc = ['reload-config', 'mode main']
+    r = ['flatten-workspace-tree', 'mode main']     # reset layout
+    f = ['layout floating tiling', 'mode main']     # toggle floating
+    backspace = ['close-all-windows-but-current', 'mode main']
+
+    alt-shift-h = ['join-with left', 'mode main']
+    alt-shift-j = ['join-with down', 'mode main']
+    alt-shift-k = ['join-with up', 'mode main']
+    alt-shift-l = ['join-with right', 'mode main']

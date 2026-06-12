@@ -1,3 +1,6 @@
 common/.config/tmux/plugins
-macos/karabiner/automatic_backups/
+macos/.config/karabiner/automatic_backups/
+macos/.config/karabiner/node_modules/
+macos/.config/karabiner/.agents/
+macos/.config/karabiner/skills-lock.json
 .nvimlog

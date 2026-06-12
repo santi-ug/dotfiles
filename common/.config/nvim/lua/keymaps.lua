@@ -6,9 +6,6 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<c-s>', '<cmd>w<CR>', { desc = 'Save buffer' })
 
--- Quit
-vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Close window' })
-
 -- File operations
 vim.keymap.set('n', '<C-n>', '<cmd>AdvancedNewFile<CR>', {
   desc = 'Create file/folder (AdvancedNewFile)',
@@ -16,16 +13,6 @@ vim.keymap.set('n', '<C-n>', '<cmd>AdvancedNewFile<CR>', {
 })
 vim.keymap.set('n', '<leader>h', '<cmd>vsplit<CR>', { desc = 'Horizontal split' })
 vim.keymap.set('n', '<leader>v', '<cmd>split<CR>', { desc = 'Vertical split' })
-
--- Delete buffer (smart: force if terminal)
-vim.keymap.set('n', '<leader>x', function()
-  local name = vim.api.nvim_buf_get_name(0)
-  if name:sub(1, 7) == 'term://' then
-    vim.cmd 'bd!'
-  else
-    vim.cmd 'bd'
-  end
-end, { desc = 'Delete buffer (smart)' })
 
 -- Buffer navigation
 vim.keymap.set('n', '<leader><Tab>', '<cmd>bnext<CR>', { desc = 'Next buffer' })
@@ -54,6 +41,14 @@ vim.keymap.set('n', '<C-l>', '<cmd>TmuxNavigateRight<CR>', { desc = 'Tmux right'
 vim.keymap.set('n', '<C-\\>', '<cmd>TmuxNavigatePrevious<CR>', { desc = 'Tmux previous pane' })
 
 -- Colorscheme
-vim.keymap.set('n', '<leader>tc', '<cmd>Telescope colorscheme<CR>', {
-  desc = 'Telescope colorschemes',
+vim.keymap.set('n', '<leader>tc', function()
+  require('telescope.builtin').colorscheme { ignore_builtins = true }
+end, {
+  desc = 'Change theme',
+})
+
+vim.keymap.set('n', '<leader>ts', function()
+  require('userprefs').pick_tab_size()
+end, {
+  desc = 'Change tab size',
 })

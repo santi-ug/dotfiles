@@ -35,4 +35,10 @@ return {
     'navarasu/onedark.nvim',
     priority = 1000,
   },
+
+  -- Oxocarbon
+  {
+    'nyoom-engineering/oxocarbon.nvim',
+    priority = 1000,
+  },
 }
