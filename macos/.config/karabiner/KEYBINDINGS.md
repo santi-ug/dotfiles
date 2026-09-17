@@ -22,9 +22,12 @@
 
 | Keys | Action |
 |------|--------|
-| `Hyper + O + B` | Zen |
-| `Hyper + O + D` | Codex |
+| `Hyper + O + 3` | T3 Code (Nightly) |
+| `Hyper + O + 4` | Orca |
+| `Hyper + O + B` | Arc |
+| `Hyper + O + D` | Discord |
 | `Hyper + O + A` | Claude |
+| `Hyper + O + X` | ChatGPT |
 | `Hyper + O + C` | Calendar |
 | `Hyper + O + V` | Visual Studio Code |
 | `Hyper + O + O` | void |
@@ -32,10 +35,12 @@
 | `Hyper + O + N` | Notion |
 | `Hyper + O + T` | Ghostty |
 | `Hyper + O + F` | Finder |
-| `Hyper + O + S` | Spotify |
+| `Hyper + O + S` | Safari |
+| `Hyper + O + M` | Spotify |
 | `Hyper + O + W` | WhatsApp |
+| `Hyper + O + H` | Helium |
 | `Hyper + O + R` | Reminders |
-| `Hyper + O + M` | Mail |
+| `Hyper + O + E` | Mail |
 
 ## W — Window
 
@@ -101,7 +106,6 @@
 | Keys | Action |
 |------|--------|
 | `Hyper + R + 1` | Connect Bluetooth Device 1 |
-| `Hyper + R + C` | Color Picker |
 | `Hyper + R + N` | Dismiss Notifications |
 | `Hyper + R + E` | Emoji Search |
 | `Hyper + R + P` | Confetti |
