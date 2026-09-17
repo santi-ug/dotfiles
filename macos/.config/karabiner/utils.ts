@@ -195,6 +195,27 @@ export function shell(
  * Shortcut for managing window sizing
  */
 export function window(name: string): LayerCommand {
+  const keys: Partial<Record<string, KeyCode>> = {
+    "previous-display": "f13",
+    "next-display": "f14",
+    "top-half": "f15",
+    "bottom-half": "f16",
+    "left-half": "f17",
+    "right-half": "f15",
+    "almost-maximize": "f19",
+    "reasonable-size": "f20",
+    "make-smaller": "f21",
+    "make-larger": "f22",
+  };
+  const key = keys[name];
+
+  if (key) {
+    return {
+      to: [{ key_code: key, ...(name === "right-half" ? { modifiers: ["left_command"] } : {}) }],
+      description: `Window: ${name}`,
+    };
+  }
+
   return {
     to: [
       {

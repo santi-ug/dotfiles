@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsm rules.ts && '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile Default",
+    "build:tracker": "mkdir -p \"$HOME/.cache\" && swiftc -O window-toggle.swift -o \"$HOME/.cache/karabiner-window-toggle-bin\" && codesign --force --sign \"Developer ID Application: Santiago Uribe Gil (PPLR6CZC39)\" --identifier com.santi.window-layout-tracker \"$HOME/.cache/karabiner-window-toggle-bin\"",
     "watch": "nodemon --exec npm run build -e ts"
   },
   "keywords": [],

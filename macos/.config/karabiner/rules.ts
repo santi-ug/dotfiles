@@ -21,9 +21,12 @@ const subLayers = {
   },
   // o = "Open" applications
   o: {
-    b: app("Zen"),
-    d: app("Codex"),
+    3: app("T3 Code (Nightly)"),
+    4: app("Orca"),
+    b: app("Arc"),
+    d: app("Discord"),
     a: app("Claude"),
+    x: app("ChatGPT"),
     c: app("Calendar"),
     v: app("Visual Studio Code"),
     o: app("void"),
@@ -31,10 +34,12 @@ const subLayers = {
     n: app("Notion"),
     t: app("Ghostty"),
     f: app("Finder"),
-    s: app("Spotify"),
+    s: app("Safari"),
+    m: app("Spotify"),
     w: app("WhatsApp"),
+    h: app("Helium"),
     r: app("Reminders"),
-    m: app("Mail"),
+    e: app("Mail"),
   },
 
   // w = "Window"
@@ -140,17 +145,18 @@ const subLayers = {
     b: { description: "Previous Track", to: [{ key_code: "rewind" }] },
   },
 
-  // r = "Raycast"
+  // r = "Raycast / Tinycast"
   r: {
-    c: { ...open("raycast://extensions/thomas/color-picker/pick-color"), description: "Color Picker" },
+    // c: { ...open("raycast://extensions/thomas/color-picker/pick-color"), description: "Color Picker" },
+    // Tinycast imports this as a custom command, not an extension URL.
     n: { ...open("raycast://script-commands/dismiss-notifications"), description: "Dismiss Notifications" },
-    e: { ...open("raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"), description: "Emoji Search" },
-    p: { ...open("raycast://extensions/raycast/raycast/confetti"), description: "Confetti" },
-    h: { ...open("raycast://extensions/raycast/clipboard-history/clipboard-history"), description: "Clipboard History" },
-    1: { ...open("raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-1"), description: "Connect Bluetooth Device 1" },
+    e: { ...open("tinycast://extensions/raycast/emoji-symbols/search-emoji-symbols"), description: "Emoji Search" },
+    p: { ...open("tinycast://extensions/raycast/raycast/confetti"), description: "Confetti" },
+    h: { ...open("tinycast://extensions/raycast/clipboard-history/clipboard-history"), description: "Clipboard History" },
+    1: { ...open("tinycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-1"), description: "Connect Bluetooth Device 1" },
     // 2: { ...open("raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-2"), description: "Connect Bluetooth Device 2" },
   },
-} as const;
+} satisfies Parameters<typeof createHyperSubLayers>[0];
 
 const rules: KarabinerRules[] = [
   {
@@ -175,28 +181,13 @@ const rules: KarabinerRules[] = [
     manipulators: [
       {
         type: "basic",
-        description: "Maximize window",
+        description: "Toggle Tinycast maximize and previous layout",
         from: { key_code: "f", modifiers: { optional: ["any"] } },
         to: [
-          { shell_command: "open -g raycast://extensions/raycast/window-management/maximize" },
-          { set_variable: { name: "window_maximized", value: 1 } },
+          { key_code: "f15", modifiers: ["left_command", "left_option"] },
         ],
         conditions: [
           { type: "variable_if", name: "hyper_sublayer_w", value: 1 },
-          { type: "variable_if", name: "window_maximized", value: 0 },
-        ],
-      },
-      {
-        type: "basic",
-        description: "Restore window",
-        from: { key_code: "f", modifiers: { optional: ["any"] } },
-        to: [
-          { shell_command: "open -g raycast://extensions/raycast/window-management/restore" },
-          { set_variable: { name: "window_maximized", value: 0 } },
-        ],
-        conditions: [
-          { type: "variable_if", name: "hyper_sublayer_w", value: 1 },
-          { type: "variable_if", name: "window_maximized", value: 1 },
         ],
       },
     ],
